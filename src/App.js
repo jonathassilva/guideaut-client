@@ -37,6 +37,24 @@ class App extends Component {
     ]
   }
 
+  addGuideline = () => {
+    console.log('Adicionando Comentario')
+
+    const newGuideline = {
+      id: Math.floor((Math.random() * 100) + 1),
+      category: 'Usabilidade',
+      description: 'Use preferencialmente cores leves, sem tons muito fortes',
+      createdAt: Date.now().toString(),
+      authorEmail: 'aureah.melo@gmail.com',
+      likes: '0',
+      unlikes: '0'
+    }
+
+    this.setState({ guidelines: [...this.state.guidelines, newGuideline] })
+
+
+  }
+
   render() {
     return (
       <div className="App">
@@ -54,6 +72,8 @@ class App extends Component {
           >
           </Guidelines>
         ))}
+
+        <button onClick={this.addGuideline}>Adicicionar guideline</button>
       </div>
     );
   }
