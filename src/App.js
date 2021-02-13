@@ -9,7 +9,7 @@ class App extends Component {
     guidelines: [
       {
         id: 1,
-        category: 'Interface',
+        object_id: 333, 
         description: 'Colocar mais cores',
         createdAt: new Date(2021, 2, 1),
         authorEmail: 'jonathas.silvasantos@gmail.com',
@@ -18,7 +18,7 @@ class App extends Component {
       },
       {
         id: 2,
-        category: 'Interface',
+        object_id: 333,
         description: 'Colocar mais cores',
         createdAt: new Date(2021, 2, 1),
         authorEmail: 'jonathas.silvasantos@gmail.com',
@@ -27,22 +27,21 @@ class App extends Component {
       },
       {
         id: 3,
-        category: 'Interface',
+        object_id: 333,
         description: 'Colocar mais cores',
         createdAt: new Date(2021, 2, 1),
         authorEmail: 'jonathas.silvasantos@gmail.com',
         likes: '3',
         unlikes: '0'
       }
-    ]
+    ],
   }
 
   addGuideline = () => {
-    console.log('Adicionando Comentario')
 
     const newGuideline = {
       id: Math.floor((Math.random() * 100) + 1),
-      category: 'Usabilidade',
+      object_id: 333,
       description: 'Use preferencialmente cores leves, sem tons muito fortes',
       createdAt: Date.now().toString(),
       authorEmail: 'aureah.melo@gmail.com',
@@ -51,7 +50,6 @@ class App extends Component {
     }
 
     this.setState({ guidelines: [...this.state.guidelines, newGuideline] })
-
 
   }
 
@@ -63,7 +61,7 @@ class App extends Component {
         {this.state.guidelines.map(guideline => (
           <Guidelines
             key={guideline.id}
-            category={guideline.category}
+            object={guideline.object_id}
             description={guideline.description}
             createdAt={guideline.createdAt}
             authorEmail={guideline.authorEmail}
@@ -72,8 +70,6 @@ class App extends Component {
           >
           </Guidelines>
         ))}
-
-        <button onClick={this.addGuideline}>Adicicionar guideline</button>
       </div>
     );
   }
